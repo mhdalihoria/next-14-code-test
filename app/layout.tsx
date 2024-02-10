@@ -1,3 +1,5 @@
+import { ThemeProvider } from "@mui/material/styles";
+import { lightTheme } from "@/theme/theme";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
@@ -13,12 +15,14 @@ export default function RootLayout({
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
+          background: "#EDF2F8" 
         }}
       >
-        <Navbar />
-        <main style={{ flex: " 1" }}>{children}</main>
-        {/* <main style={{ marginTop: "2rem" }}>{children}</main> */}
-        <Footer />
+        <ThemeProvider theme={lightTheme}>
+          <Navbar />
+          <main style={{ flex: "1"}}>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

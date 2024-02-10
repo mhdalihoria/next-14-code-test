@@ -10,6 +10,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Logo from "@/public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 const logoStyle = {
   width: "50px",
@@ -18,6 +20,9 @@ const logoStyle = {
 };
 
 function AppAppBar() {
+  const theme = useTheme();
+  const router = useRouter();
+
   return (
     <div>
       <AppBar
@@ -71,21 +76,27 @@ function AppAppBar() {
                 alignItems: "center",
               }}
             >
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                {/* <MenuItem sx={{ py: "6px", px: "12px" }}> */}
-                <Link href={"/breeds"}>
-                  <Typography variant="body2" color="text.primary">
-                    Breeds
-                  </Typography>
-                </Link>
-                {/* </MenuItem> */}
-                {/* <MenuItem sx={{ py: "6px", px: "12px" }}> */}
-                <Link href={"/facts"}>
-                  <Typography variant="body2" color="text.primary">
-                    Facts
-                  </Typography>
-                </Link>
-                {/* </MenuItem> */}
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  gap: { xs: "none", md: "10px" },
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => router.push("/breeds")}
+                >
+                  <Typography variant="body2">Breeds</Typography>
+                </Button>
+
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => router.push("/facts")}
+                >
+                  <Typography variant="body2">Facts</Typography>
+                </Button>
               </Box>
             </Box>
           </Toolbar>
