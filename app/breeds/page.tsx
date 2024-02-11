@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import { BreedsApiResponse } from "@/types/breedsType";
 import BreedsTable from "./components/BreedsTable";
-import { Box, Pagination } from "@mui/material";
+import { Box, Container, Pagination } from "@mui/material";
+import styles from "./styles/breeds.module.css";
 
 type pageType = number | null;
 
@@ -27,8 +28,11 @@ export default function Breeds() {
   }, [page]);
 
   return (
-    <div>
-      <h1>Table</h1>
+    <Container maxWidth="lg" style={{ marginTop: "7rem" }}>
+      <Box className={styles.breedsHeaderContainer}>
+        <h1 className={styles.breedsSectionTitle}>Table</h1>
+        <p>Here is a list of cat breeds for you to learn from...</p>
+      </Box>
       {breeds && (
         <>
           <BreedsTable data={breeds} />
@@ -48,6 +52,6 @@ export default function Breeds() {
           </Box>
         </>
       )}
-    </div>
+    </Container>
   );
 }
