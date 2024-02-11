@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { allFactsType, randomFactType } from "@/types/facts";
-import { Box, Button, Grid, Pagination } from "@mui/material";
+import { Box, Button, Container, Grid, Pagination } from "@mui/material";
 import FactCard from "./components/FactCard";
 import styles from "./styles/FactSection.module.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -42,11 +42,11 @@ export default function FactSection({
       <Box className={styles.factsContainer}>
         {factType &&
           (factType === "all" ? (
-            <AllFactsComponent allFacts={allFacts} />
+            <AllFactsComponent allFacts={allFacts}/>
           ) : (
-            <div>
-              <FactCard fact={randomFact.fact} />
-            </div>
+            <Container maxWidth="sm">
+              <FactCard fact={randomFact.fact} type="random"/>
+            </Container>
           ))}
       </Box>
     </div>
@@ -58,8 +58,6 @@ function AllFactsComponent({ allFacts }: { allFacts: allFactsType }) {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const currentPageurl = Number(searchParams.get("page")) || 1;
-
-  console.log(pathname, searchParams, currentPageurl);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -75,7 +73,7 @@ function AllFactsComponent({ allFacts }: { allFacts: allFactsType }) {
       <Grid container columnSpacing={2} rowSpacing={2}>
         {allFacts.data.map((fact) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={fact.fact}>
-            <FactCard fact={fact.fact} />
+            <FactCard fact={fact.fact} type="all"/>
           </Grid>
         ))}
       </Grid>

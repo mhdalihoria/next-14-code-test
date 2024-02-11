@@ -6,7 +6,13 @@ const cardStyle = {
   minHeight: "150px",
 };
 
-export default function FactCard({ fact }: { fact: string }) {
+export default function FactCard({
+  fact,
+  type,
+}: {
+  fact: string;
+  type: string;
+}) {
   const [isSeeMore, setIsSeeMore] = useState(false);
   const croppedStr =
     fact.length > 100
@@ -15,21 +21,24 @@ export default function FactCard({ fact }: { fact: string }) {
         : fact.split(" ").slice(0, 10).join(" ") + "..."
       : fact;
 
-
   return (
     <Card sx={cardStyle}>
       <h3>Did you know...</h3>
-      <p>
-        {croppedStr}
-        {fact.length > 100 && (
-          <span
-            onClick={() => setIsSeeMore(!isSeeMore)}
-            className={styles.seeMoreCardBtn}
-          >
-            See {isSeeMore ? "Less" : "More"}
-          </span>
-        )}
-      </p>
+      {type === "random" ? (
+        <p>{fact}</p>
+      ) : (
+        <p>
+          {croppedStr}
+          {fact.length > 100 && (
+            <span
+              onClick={() => setIsSeeMore(!isSeeMore)}
+              className={styles.seeMoreCardBtn}
+            >
+              See {isSeeMore ? "Less" : "More"}
+            </span>
+          )}
+        </p>
+      )}
     </Card>
   );
 }
