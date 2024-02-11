@@ -10,10 +10,8 @@ export default async function FactsPage({
     page?: string;
   };
 }) {
-
   const allFacts: allFactsType = await getAllFacts(searchParams?.page);
   const randomFact: randomFactType = await getRandomFact();
-  console.log(searchParams)
 
   return (
     <Container maxWidth="lg" sx={{ mt: 14 }}>
