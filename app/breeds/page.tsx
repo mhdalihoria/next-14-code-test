@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { BreedsApiResponse } from "@/types/breedsType";
 import BreedsTable from "./components/BreedsTable";
+import SkeletonTable from "./components/SkeletonTable";
 import { Box, Container, Pagination } from "@mui/material";
 import styles from "./styles/breeds.module.css";
 
@@ -33,7 +34,7 @@ export default function Breeds() {
         <h1 className={styles.breedsSectionTitle}>Table</h1>
         <p>Here is a list of cat breeds for you to learn from...</p>
       </Box>
-      {breeds && (
+      {breeds ? (
         <>
           <BreedsTable data={breeds} />
           <Box
@@ -51,7 +52,7 @@ export default function Breeds() {
             />
           </Box>
         </>
-      )}
+      ): <SkeletonTable />}
     </Container>
   );
 }
