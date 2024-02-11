@@ -1,0 +1,29 @@
+.factSectionHeader {
+  background: #e8e8e8;
+  padding: 2rem;
+  border-radius: "5px";
+}
+
+.factSectionTitle {
+  margin-top: 0;
+}
+
+.factSectionHeaderBtnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.factsContainer {
+    margin-top: 3rem;
+}
+
+.seeMoreCardBtn {
+    font-weight: 900;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: .5em 0;
+    display: block;
+}
