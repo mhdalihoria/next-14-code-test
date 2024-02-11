@@ -23,6 +23,8 @@ export default function RootLayout({
           flexDirection: "column",
           minHeight: "100vh",
           background: "#EDF2F8",
+          margin: 0,
+          padding: 0,
         }}
         className={roboto.className}
       >
