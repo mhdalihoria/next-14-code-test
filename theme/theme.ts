@@ -1,13 +1,7 @@
 "use client"
 
-import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material";
 
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const lightTheme = createTheme({
   palette: {
@@ -52,9 +46,6 @@ const lightTheme = createTheme({
       dark: "#388e3c",
       contrastText: "rgba(0, 0, 0, 0.87)",
     },
-  },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
   },
 });
 
