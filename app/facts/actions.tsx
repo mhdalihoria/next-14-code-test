@@ -14,8 +14,10 @@ export async function getRandomFact(): Promise<randomFactType> {
   return response.json();
 }
 
-export async function getAllFacts(): Promise<allFactsType> {
-  const response = await fetch("https://catfact.ninja/facts");
+export async function getAllFacts(
+  page: string | undefined
+): Promise<allFactsType> {
+  const response = await fetch(`https://catfact.ninja/facts?page=${page}`);
 
   if (!response.ok) {
     throw new Error("Failed To Get Facts");
