@@ -71,15 +71,15 @@ function AppAppBar() {
             </Box>
             <Box
               sx={{
-                display: { xs: "none", md: "flex" },
+                display: "flex",
                 gap: 0.5,
                 alignItems: "center",
               }}
             >
               <Box
                 sx={{
-                  display: { xs: "none", md: "flex" },
-                  gap: { xs: "none", md: "10px" },
+                  display: "flex",
+                  gap: "10px",
                 }}
               >
                 <Button
